@@ -178,3 +178,44 @@ logValue(copy);
 //Modificar la copia no afecta a la original
 copy.age = 29;
 logValue(copy);
+let point = {
+    x: 10,
+    y: 20
+};
+logValue(point);
+let userId;
+userId = 3;
+logValue(userId);
+userId = 'abc123';
+logValue(userId);
+let employee = {
+    name: 'Jhon',
+    age: 30,
+    employeeId: 1234
+};
+logValue(employee);
+function move(direction) {
+    console.log(`Moving ${direction}`);
+}
+move('up');
+move('right');
+let user1 = {
+    name: 'Alice'
+};
+let user2 = {
+    name: 'Bob',
+    age: 25
+};
+logValue(user1);
+logValue(user2);
+let greet = (name) => {
+    return `Hello, ${name}`;
+};
+logValue(greet('Alice'));
+let tuple = [12, 'tia'];
+logValue(tuple);
+let result3 = {
+    success: true,
+    data: 'Operation completed'
+};
+logValue(result3);

@@ -271,3 +271,91 @@ logValue(copy);
 copy.age = 29;
 logValue(copy);
 
+//######### CUSTOM TYPE #############
+//01 Definir y usar un tipo personalizado
+type Point = {
+  x: number;
+  y: number;
+};
+
+let point: Point = {
+  x: 10,
+  y: 20
+};
+
+logValue(point);
+
+//02 Iipos de union 
+type IDs = number | string;
+let userId: IDs;
+userId = 3;
+logValue(userId);
+userId = 'abc123';
+logValue(userId);
+
+//03 Tipos de interseccion
+type Person2 = {
+  name: string;
+  age: number;
+};
+
+type Employee = Person2 & {
+  employeeId: number;
+};
+
+let employee: Employee = {
+  name: 'Jhon',
+  age: 30,
+  employeeId: 1234
+};
+logValue(employee)
+
+//04 Tipos literales
+type Direction = 'up' | 'down' | 'left' | 'right';
+
+function move(direction: Direction) {
+  console.log(`Moving ${direction}`);
+}
+move('up');
+move('right');
+
+//05 Tipos opcionales
+type User = {
+  name: string;
+  age?: number; // Propiedad opcional
+};
+
+let user1: User = {
+  name: 'Alice'
+};
+
+let user2: User = {
+  name: 'Bob',
+  age: 25
+};
+logValue(user1);
+logValue(user2);
+
+//06 Tipos de funcion 
+type Greet = (name: string) => string;
+let greet: Greet = (name: string) => {
+  return `Hello, ${name}`;
+};
+logValue(greet('Alice'));
+
+//07 Tipos de Tuplas
+type Tuple = [number, string];
+let tuple: Tuple = [12, 'tia'];
+logValue(tuple);
+
+//08 Tipos genericos
+type Result<T> = {
+  success: boolean;
+  data: T;
+};
+let result3: Result<string> = {
+  success: true,
+  data: 'Operation completed'
+};
+logValue(result3);
+
