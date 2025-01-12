@@ -411,16 +411,16 @@ logValue(calculator3.add(5, 4));
 logValue(calculator3.subtract(2, 4));
 
 //04 Extender Interfaces
-interface Animal {
+interface Animal2 {
   name: string;
   age: number;
 }
 
-interface Dog extends Animal {
+interface Dog3 extends Animal2 {
   breed: string;
 }
 
-let dog: Dog = {
+let dog: Dog3 = {
   name: 'Firulais',
   age: 2,
   breed: "wau wau"
@@ -469,4 +469,169 @@ let dictionary: Dictionary = {
 logValue(dictionary.hello);
 logValue(dictionary.world);
 
+//######### CLASES Y POO #############
+//01 Definir una clase basica
+class Person7 {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+let person7 = new Person7('Alice', 25);
+person7.greet();
+
+//02 Herencia
+class Animal {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  move(distance: number) {
+    logValue(`${this.name} moved ${distance} meters.`);
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    logValue("Woof! Woof!");
+  }
+}
+
+let dog2 = new Dog('Buddy');
+dog2.bark();
+dog2.move(10);
+
+//03 Modificadores de acceso
+class Car4 {
+  private brand: string;
+  protected model: string;
+  public year: number;
+
+  constructor(brand: string, model: string, year: number) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+  }
+
+  public getBrand() {
+    return this.brand;
+  }
+}
+
+let car4 = new Car4('Toyota', 'Corolla', 2022);
+logValue(car4.year);
+logValue(car4.getBrand());
+
+
+//04 Getter y Setters
+class Rectangle {
+  private _width: number;
+  private _height: number;
+
+  constructor(width: number, height: number) {
+    this._width = width;
+    this._height = height;
+  }
+
+  get area() {
+    return this._width * this._height;
+  }
+
+  set width(value: number) {
+    if (value <= 0) {
+      throw new Error("Width must be greater than zero.");
+    }
+    this._width = value;
+  }
+
+  set height(value: number) {
+    if (value <= 0) {
+      throw new Error("Width must be greater than zero.");
+    }
+    this._height = value;
+  }
+}
+
+let rectangle = new Rectangle(10, 20);
+logValue(rectangle.area);
+rectangle.width = 15;
+logValue(rectangle.area);
+
+
+//05 Clases abstractasas
+abstract class Shape {
+  abstract getArea(): number;
+
+  printArea() {
+    logValue(`Area: ${this.getArea()}`);
+  }
+}
+
+class Circle extends Shape {
+  radius: number;
+
+  constructor(radius: number) {
+    super();
+    this.radius = radius;
+  }
+
+  getArea(): number {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+//06 Interfaces y Clases
+interface Flyable {
+  fly(): void;
+}
+
+class Bird implements Flyable {
+  fly() {
+    logValue("Flying high!");
+  }
+}
+
+let bird = new Bird();
+bird.fly();
+
+//07 Metodos estaticos //se peude llamar directamente desde la clase
+class MathUtils {
+  static add(a: number, b: number): number {
+    return a + b;
+  }
+}
+
+logValue(MathUtils.add(4, 3));
+
+//08 Clases genericos
+class Box<T> {
+  contents: T;
+
+  constructor(contents: T) {
+    this.contents = contents;
+  }
+
+  getContents(): T {
+    return this.contents;
+  }
+}
+
+let numberBox = new Box<number>(234);
+logValue(numberBox.getContents());
+
+let stringBox = new Box<string>('Tu vieja');
+logValue(stringBox.getContents());
+
+
+//######### ENCAPSULAMIENTO Y GENERICOS #############
 

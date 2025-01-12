@@ -269,3 +269,116 @@ let dictionary = {
 };
 logValue(dictionary.hello);
 logValue(dictionary.world);
+//######### CLASES Y POO #############
+//01 Definir una clase basica
+class Person7 {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+let person7 = new Person7('Alice', 25);
+person7.greet();
+//02 Herencia
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    move(distance) {
+        logValue(`${this.name} moved ${distance} meters.`);
+    }
+}
+class Dog extends Animal {
+    bark() {
+        logValue("Woof! Woof!");
+    }
+}
+let dog2 = new Dog('Buddy');
+dog2.bark();
+dog2.move(10);
+//03 Modificadores de acceso
+class Car4 {
+    constructor(brand, model, year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+    getBrand() {
+        return this.brand;
+    }
+}
+let car4 = new Car4('Toyota', 'Corolla', 2022);
+logValue(car4.year);
+logValue(car4.getBrand());
+//04 Getter y Setters
+class Rectangle {
+    constructor(width, height) {
+        this._width = width;
+        this._height = height;
+    }
+    get area() {
+        return this._width * this._height;
+    }
+    set width(value) {
+        if (value <= 0) {
+            throw new Error("Width must be greater than zero.");
+        }
+        this._width = value;
+    }
+    set height(value) {
+        if (value <= 0) {
+            throw new Error("Width must be greater than zero.");
+        }
+        this._height = value;
+    }
+}
+let rectangle = new Rectangle(10, 20);
+logValue(rectangle.area);
+rectangle.width = 15;
+logValue(rectangle.area);
+//05 Clases abstractasas
+class Shape {
+    printArea() {
+        logValue(`Area: ${this.getArea()}`);
+    }
+}
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+    getArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+class Bird {
+    fly() {
+        logValue("Flying high!");
+    }
+}
+let bird = new Bird();
+bird.fly();
+//07 Metodos estaticos //se peude llamar directamente desde la clase
+class MathUtils {
+    static add(a, b) {
+        return a + b;
+    }
+}
+logValue(MathUtils.add(4, 3));
+//08 Clases genericos
+class Box {
+    constructor(contents) {
+        this.contents = contents;
+    }
+    getContents() {
+        return this.contents;
+    }
+}
+let numberBox = new Box(234);
+logValue(numberBox.getContents());
+let stringBox = new Box('Tu vieja');
+logValue(stringBox.getContents());
+//######### ENCAPSULAMIENTO Y GENERICOS #############
