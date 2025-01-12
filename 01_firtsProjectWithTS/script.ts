@@ -359,3 +359,114 @@ let result3: Result<string> = {
 };
 logValue(result3);
 
+//######### INTERFACES #############
+
+//01 Definir y usar una interfaz basica 
+interface Person {
+  name: string;
+  age: number;
+}
+
+let person4: Person = {
+  name: 'Juana',
+  age: 56
+};
+logValue(person4);
+
+//02 Interfaz con propiedades opcionales
+interface Car {
+  brand: string;
+  model: string;
+  year?: number; // Propiedad opcional 
+}
+
+let car1: Car = {
+  brand: 'Toyota',
+  model: 'Corolla',
+};
+logValue(car1);
+let car2: Car = {
+  brand: 'Honda',
+  model: 'Civic',
+  year: 2024
+};
+logValue(car2);
+
+//03 Interfaz con Metodos
+interface Calculator1 {
+  add(a: number, b: number): number;
+  subtract(a: number, b: number): number;
+}
+
+let calculator3: Calculator1 = {
+  add: (a: number, b: number): number => {
+    return a + b;
+  },
+  subtract: (a: number, b: number): number => {
+    return a - b;
+  }
+};
+
+logValue(calculator3.add(5, 4));
+logValue(calculator3.subtract(2, 4));
+
+//04 Extender Interfaces
+interface Animal {
+  name: string;
+  age: number;
+}
+
+interface Dog extends Animal {
+  breed: string;
+}
+
+let dog: Dog = {
+  name: 'Firulais',
+  age: 2,
+  breed: "wau wau"
+};
+logValue(dog);
+
+//05 Interfaz para funciones 
+interface Greet1 {
+  (name: string): string;
+}
+
+let greet1: Greet1 = (name: string): string => {
+  return `Hello, ${name}`;
+};
+logValue(greet1('Alice'));
+
+//06 Interfaz con propiedades de solo lectura
+interface Point1 {
+  readonly x: number;
+  readonly y: number;
+}
+
+let point1: Point1 = {
+  x: 10,
+  y: 24
+};
+logValue(point1);
+
+//07 Interfaz con propiedades de indice
+interface StringArray {
+  [index: number]: string;
+}
+let myArray: StringArray = ['Alice', 'Luchito', 'Bob', 'Charlie'];
+logValue(myArray[0]);
+logValue(myArray[2]);
+
+//08 Interfaz para describir a un objeto con propiedades dinamicas
+interface Dictionary {
+  [key: string]: string;
+}
+
+let dictionary: Dictionary = {
+  hello: 'Hola',
+  world: 'mundo!'
+};
+logValue(dictionary.hello);
+logValue(dictionary.world);
+
+

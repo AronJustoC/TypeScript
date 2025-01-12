@@ -219,3 +219,53 @@ let result3 = {
     data: 'Operation completed'
 };
 logValue(result3);
+let person4 = {
+    name: 'Juana',
+    age: 56
+};
+logValue(person4);
+let car1 = {
+    brand: 'Toyota',
+    model: 'Corolla',
+};
+logValue(car1);
+let car2 = {
+    brand: 'Honda',
+    model: 'Civic',
+    year: 2024
+};
+logValue(car2);
+let calculator3 = {
+    add: (a, b) => {
+        return a + b;
+    },
+    subtract: (a, b) => {
+        return a - b;
+    }
+};
+logValue(calculator3.add(5, 4));
+logValue(calculator3.subtract(2, 4));
+let dog = {
+    name: 'Firulais',
+    age: 2,
+    breed: "wau wau"
+};
+logValue(dog);
+let greet1 = (name) => {
+    return `Hello, ${name}`;
+};
+logValue(greet1('Alice'));
+let point1 = {
+    x: 10,
+    y: 24
+};
+logValue(point1);
+let myArray = ['Alice', 'Luchito', 'Bob', 'Charlie'];
+logValue(myArray[0]);
+logValue(myArray[2]);
+let dictionary = {
+    hello: 'Hola',
+    world: 'mundo!'
+};
+logValue(dictionary.hello);
+logValue(dictionary.world);
