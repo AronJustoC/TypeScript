@@ -703,4 +703,4 @@ logValue(boxOfNumbers.getValue());
 const boxOfStrings = new Box01<string>("Arito");
 logValue(boxOfStrings.getValue());
 boxOfStrings.setValue("Adanko");
-logValue(boxOfStrings.getValue());
+logValue(boxOfStrings.getValue())
