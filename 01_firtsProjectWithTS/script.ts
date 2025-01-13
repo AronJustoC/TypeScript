@@ -634,4 +634,73 @@ logValue(stringBox.getContents());
 
 
 //######### ENCAPSULAMIENTO Y GENERICOS #############
+//01 Clases en TypeScript
+class Person01 {
+  private name: string;
+  private age: number;
 
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public getName(): string {
+    return this.name;
+  }
+
+  public setName(name: string): void {
+    this.name = name;
+  }
+  public getAge(): number {
+    return this.age;
+  }
+
+  public setAge(age: number): void {
+    this.age = age;
+  }
+}
+
+//Uso de la clase Person01
+const person03 = new Person01('Juan', 30);
+logValue(person03.getName());
+person03.setAge(31);
+logValue(person03.getAge());
+
+//02 Genericos
+function getFirstElement<T>(array: T[]): T {
+  return array[0];
+}
+//Uso indiferente entre arrays de acualquier tipo
+const numbers04 = [1, 2, 3];
+const firstElementOfnumbers = getFirstElement(numbers04);
+logValue(firstElementOfnumbers);
+const words = ['letra1', 'palabra1', 'words'];
+const firstElementOfwords = getFirstElement(words);
+logValue(firstElementOfwords);
+
+//03 Clase generica
+class Box01<T> {
+  private value: T;
+
+  constructor(value: T) {
+    this.value = value;
+  }
+
+  public getValue(): T {
+    return this.value;
+  }
+
+  public setValue(value: T): void {
+    this.value = value;
+  }
+}
+
+const boxOfNumbers = new Box01<number>(321);
+logValue(boxOfNumbers.getValue());
+boxOfNumbers.setValue(125);
+logValue(boxOfNumbers.getValue());
+
+const boxOfStrings = new Box01<string>("Arito");
+logValue(boxOfStrings.getValue());
+boxOfStrings.setValue("Adanko");
+logValue(boxOfStrings.getValue());
